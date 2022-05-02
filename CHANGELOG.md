@@ -1,3 +1,7 @@
+## 2.4.0
+
+- Refactor parts of the project into [ERC20](https://pub.dev/packages/erc20) and [Web3_Browser](https://pub.dev/packages/web3_browser)
+
 ## 2.3.5
 
 - Ensuring quality and performance.
@@ -69,7 +73,7 @@
 - Add `compressPublicKey` and `decompressPublicKey` to obtain a compressed or expanded version of keys.
 - Add `getLogs` method to `Web3Client`. Thanks, [jmank88](https://github.com/jmank88)!
 - Add `sendRawTransaction` to send a raw, signed transaction.
-- Fix `hexToDartInt` not actually parsing hex ([#81](https://github.com/simolus3/web3dart/issues/81))
+- Fix `hexToDartInt` not actually parsing hex ([#81](https://github.com/xclud/web3dart/issues/81))
 - Support for background isolates is temporarily disabled until `package:isolate` migrates to null safety
 
 ## 1.2.3
@@ -78,7 +82,7 @@
 
 ## 1.2.2
 
-- Fixed a bug when decoding negative integers ([#73](https://github.com/simolus3/web3dart/issues/73))
+- Fixed a bug when decoding negative integers ([#73](https://github.com/xclud/web3dart/issues/73))
 
 ## 1.2.0
 
@@ -119,7 +123,7 @@ This version contains breaking changes! Here is an overview listing some of them
 | Sending transactions or calling contract functions | The api has been changed to just a single methods instead of a transaction builder. See the examples for details. |
 | Low-level cryptographic operations like signing, hashing and converting hex <-> byte array <-> integer  | Not available in the core library. Import `package:web3dart/crypto.dart` instead |
 
-If you run into problems after updating, please [create an issue](https://github.com/simolus3/web3dart/issues/new).
+If you run into problems after updating, please [create an issue](https://github.com/xclud/web3dart/issues/new).
 
 ## 0.4.4
 

@@ -1,7 +1,6 @@
 import 'dart:math';
 import 'dart:typed_data';
 
-import 'package:meta/meta.dart';
 import 'package:pointycastle/api.dart';
 import 'package:pointycastle/digests/sha256.dart';
 import 'package:pointycastle/ecc/api.dart';
@@ -16,7 +15,6 @@ import 'formatting.dart';
 import 'keccak.dart';
 import 'random_bridge.dart';
 
-@internal
 final ECDomainParameters params = ECCurve_secp256k1();
 final BigInt _halfCurveOrder = params.n >> 1;
 
@@ -60,11 +58,10 @@ Uint8List publicKeyToAddress(Uint8List publicKey) {
 
 /// Signatures used to sign Ethereum transactions and messages.
 class MsgSignature {
+  MsgSignature(this.r, this.s, this.v);
   final BigInt r;
   final BigInt s;
   final int v;
-
-  MsgSignature(this.r, this.s, this.v);
 }
 
 /// Signs the hashed data in [messageHash] using the given private key.
@@ -106,7 +103,8 @@ MsgSignature sign(Uint8List messageHash, Uint8List privateKey) {
 
   if (recId == -1) {
     throw Exception(
-        'Could not construct a recoverable key. This should never happen');
+      'Could not construct a recoverable key. This should never happen',
+    );
   }
 
   return MsgSignature(sig.r, sig.s, recId + 27);
@@ -142,7 +140,10 @@ Uint8List ecRecover(Uint8List messageHash, MsgSignature signatureData) {
 /// a public key encoded in bytes, confirms whether that public key was used to sign
 /// the message or not.
 bool isValidSignature(
-    Uint8List messageHash, MsgSignature signatureData, Uint8List publicKey) {
+  Uint8List messageHash,
+  MsgSignature signatureData,
+  Uint8List publicKey,
+) {
   final recoveredPublicKey = ecRecover(messageHash, signatureData);
   return bytesToHex(publicKey) == bytesToHex(recoveredPublicKey);
 }
@@ -151,26 +152,33 @@ bool isValidSignature(
 /// including the leading 02 or 03
 Uint8List compressPublicKey(Uint8List compressedPubKey) {
   return Uint8List.view(
-      params.curve.decodePoint(compressedPubKey)!.getEncoded(true).buffer);
+    params.curve.decodePoint(compressedPubKey)!.getEncoded(true).buffer,
+  );
 }
 
 /// Given a byte array computes its expanded version and returns it as a byte array,
 /// including the leading 04
 Uint8List decompressPublicKey(Uint8List compressedPubKey) {
   return Uint8List.view(
-      params.curve.decodePoint(compressedPubKey)!.getEncoded(false).buffer);
+    params.curve.decodePoint(compressedPubKey)!.getEncoded(false).buffer,
+  );
 }
 
 BigInt? _recoverFromSignature(
-    int recId, ECSignature sig, Uint8List msg, ECDomainParameters params) {
+  int recId,
+  ECSignature sig,
+  Uint8List msg,
+  ECDomainParameters params,
+) {
   final n = params.n;
   final i = BigInt.from(recId ~/ 2);
   final x = sig.r + (i * n);
 
   //Parameter q of curve
   final prime = BigInt.parse(
-      'fffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f',
-      radix: 16);
+    'fffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f',
+    radix: 16,
+  );
   if (x.compareTo(prime) >= 0) return null;
 
   final R = _decompressKey(x, (recId & 1) == 1, params.curve);

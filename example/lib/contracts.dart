@@ -55,9 +55,13 @@ Future<void> main() async {
   // establish a connection to the ethereum rpc node. The socketConnector
   // property allows more efficient event streams over websocket instead of
   // http-polls. However, the socketConnector property is experimental.
-  final client = Web3Client(rpcUrl, Client(), socketConnector: () {
-    return IOWebSocketChannel.connect(wsUrl).cast<String>();
-  });
+  final client = Web3Client(
+    rpcUrl,
+    Client(),
+    socketConnector: () {
+      return IOWebSocketChannel.connect(wsUrl).cast<String>();
+    },
+  );
   final credentials = EthPrivateKey.fromHex(privateKey);
   final ownAddress = await credentials.extractAddress();
 

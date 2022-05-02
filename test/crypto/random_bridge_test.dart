@@ -24,7 +24,7 @@ class MockRandom implements Random {
       // generating numbers in [0;1<<32] is supported by the RNG implemented in
       // dart.
       fail('RandomBridge called Random.nextInt with an upper bound that is '
-          'to high: $max');
+          'to high: $max',);
     }
 
     if (nextIntResponses.isNotEmpty) {

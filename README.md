@@ -134,7 +134,7 @@ the signed transaction but don't intend to send it, you can use
 ### Smart contracts
 
 The library can parse the abi of a smart contract and send data to it. It can also
-listen for events emitted by smart contracts. See [this file](https://github.com/simolus3/web3dart/blob/development/example/contracts.dart)
+listen for events emitted by smart contracts. See [this file](https://github.com/xclud/web3dart/blob/development/example/contracts.dart)
 for an example.
 
 ### Dart Code Generator
@@ -173,4 +173,4 @@ See [Customizing static analysis](https://dart.dev/guides/language/analysis-opti
 Please file feature requests and bugs at the [issue tracker][tracker].
 If you want to contribute to this library, please submit a Pull Request.
 
-[tracker]: https://github.com/simolus3/web3dart/issues/new
+[tracker]: https://github.com/xclud/web3dart/issues/new
