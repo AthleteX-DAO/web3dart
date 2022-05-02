@@ -120,8 +120,10 @@ class TransactionReceipt {
             : null,
         logs = map['logs'] != null
             ? (map['logs'] as List<dynamic>)
-                .map((dynamic log) =>
-                    FilterEvent.fromMap(log as Map<String, dynamic>),)
+                .map(
+                  (dynamic log) =>
+                      FilterEvent.fromMap(log as Map<String, dynamic>),
+                )
                 .toList()
             : [];
 

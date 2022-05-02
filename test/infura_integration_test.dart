@@ -15,7 +15,9 @@ void main() {
 
       setUpAll(() {
         client = Web3Client(
-            'https://mainnet.infura.io/v3/$infuraProjectId', Client(),);
+          'https://mainnet.infura.io/v3/$infuraProjectId',
+          Client(),
+        );
       });
 
       // ignore: unnecessary_lambdas, https://github.com/dart-lang/linter/issues/2670
