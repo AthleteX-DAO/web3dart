@@ -79,7 +79,7 @@ void main() {
     }
   ];
 
-  Future _runFilterTest(dynamic input, dynamic expected) async {
+  Future runFilterTest(dynamic input, dynamic expected) async {
     final client = MockClient(
       expectAsync2((method, params) {
         expect(method, 'eth_getLogs');
@@ -127,7 +127,7 @@ void main() {
   // test each test case in the list of test cases
   for (final testCase in testCases) {
     test('filters test with ${testCase['name']}', () async {
-      await _runFilterTest(testCase['input'], testCase['expected']);
+      await runFilterTest(testCase['input'], testCase['expected']);
     });
   }
 }

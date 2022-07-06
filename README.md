@@ -1,5 +1,3 @@
-# web3dart
-
 [![pub package](https://img.shields.io/pub/v/web3dart.svg)](https://pub.dartlang.org/packages/web3dart)
 
 A dart library that connects to interact with the Ethereum blockchain. It connects
@@ -146,7 +144,7 @@ To use this feature, put a contract abi json somewhere into `lib/`.
 The filename has to end with `.abi.json`.
 Then, add a `dev_dependency` on the `build_runner` package and run
 
-```
+```dart
 pub run build_runner build
 ```
 
@@ -160,7 +158,7 @@ Note that this has the side effect of suppressing serious errors as well, should
 
 Create a file named `analysis_options.yaml` in the root directory of your project:
 
-```
+```dart
 analyzer:
   exclude: 
     - '**/*.g.dart'
