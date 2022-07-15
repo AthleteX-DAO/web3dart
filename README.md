@@ -1,4 +1,11 @@
-[![pub package](https://img.shields.io/pub/v/web3dart.svg)](https://pub.dartlang.org/packages/web3dart)
+[![pub package](https://img.shields.io/pub/v/web3dart)](https://pub.dartlang.org/packages/web3dart)
+[![likes](https://img.shields.io/pub/likes/web3dart)](https://pub.dartlang.org/packages/web3dart/score)
+[![points](https://img.shields.io/pub/points/web3dart)](https://pub.dartlang.org/packages/web3dart/score)
+[![popularity](https://img.shields.io/pub/popularity/web3dart)](https://pub.dartlang.org/packages/web3dart/score)
+[![license](https://img.shields.io/github/license/xclud/web3dart)](https://pub.dartlang.org/packages/web3dart)
+[![stars](https://img.shields.io/github/stars/simolus3/web3dart)](https://github.com/xclud/web3dart/stargazers)
+[![forks](https://img.shields.io/github/forks/simolus3/web3dart)](https://github.com/xclud/web3dart/network/members)
+[![sdk version](https://badgen.net/pub/sdk-version/web3dart)](https://pub.dartlang.org/packages/web3dart)
 
 A dart library that connects to interact with the Ethereum blockchain. It connects
 to an Ethereum node to send transactions, interact with smart contracts and much
